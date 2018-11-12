@@ -56,7 +56,8 @@ class AccessLogBuilder():
         # And let's decode our bodies to UTF-8, if possible
         req_body = "not logged"
         req_size = int(request_headers["content_length"]) \
-                if "content_length" in request_headers else 0
+                if "content_length" in request_headers \
+                and request_headers["content_length"] else 0
 
         resp_body = "not logged"
         if log_bodies:
